@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class Navbar extends React.Component {
   render() {
@@ -9,7 +9,7 @@ class Navbar extends React.Component {
           <button id="search-btn">Search</button>
         </div>
       </div>
-    )
+    );
   }
 }
 
