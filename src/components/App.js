@@ -14,16 +14,13 @@ class App extends React.Component {
 
     // make api call
     //dispatch action
-    store.dispatch({
-      type: 'ADD_MOVIES',
-      movies: data,
-    });
+    store.dispatch(addMovies(data));
 
     console.log('STATE', this.props.store.getState());
   }
 
   render() {
-    const movies = this.props.store.getState();
+    const { list } = this.props.store.getState(); // {list: [], favourites: []}
     console.log('RENDER');
 
     return (
@@ -36,7 +33,7 @@ class App extends React.Component {
           </div>
 
           <div className="list">
-            {movies.map((movie, index) => (
+            {list.map((movie, index) => (
               <MovieCard movie={movie} key={`movie-${index}`} />
             ))}
           </div>
