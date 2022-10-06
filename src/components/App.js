@@ -20,7 +20,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { list } = this.props.store.getState(); // {list: [], favourites: []}
+    const list = this.props.store.getState(); // {list: [], favourites: []}
     console.log('RENDER');
 
     return (
