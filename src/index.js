@@ -12,7 +12,7 @@ const store = createStore(movies);
 
 // store.dispatch({
 //   type: 'ADD_MOVIES',
-//   movies: [{ name: 'Superman' }],
+//   movies: [{ name: 'Superman' }, { name: 'Batman' }],
 // });
 
 // console.log('after state', store.getState());

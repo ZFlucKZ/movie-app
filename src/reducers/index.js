@@ -5,10 +5,27 @@ const initialMoviesState = {
   favourites: [],
 };
 
-export default function movies(state = [], action) {
-  if (action.type === ADD_MOVIES) {
-    return action.movies;
-  }
+export default function movies(state = initialMoviesState, action) {
+  // if (action.type === ADD_MOVIES) {
+  //   return action.movies;
+  // }
 
-  return state;
+  // return state;
+
+  switch (action.type) {
+    case ADD_MOVIES:
+      return {
+        ...state,
+        list: action.movies,
+      };
+
+    case ADD_FAVOURITE:
+      return {
+        ...state,
+        favourites: [action.movies, ...state.favourites],
+      };
+
+    default:
+      return state;
+  }
 }
