@@ -34,7 +34,7 @@ class App extends React.Component {
 
   render() {
     const { list } = this.props.store.getState(); // {list: [], favourites: []}
-    console.log('RENDER');
+    console.log('RENDER', this.props.store.getState().favourites);
 
     return (
       <div className="App">
