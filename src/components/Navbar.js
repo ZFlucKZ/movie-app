@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { addMovieToList, handleMovieSearch } from '../actions';
 
 class Navbar extends React.Component {
@@ -26,6 +27,7 @@ class Navbar extends React.Component {
 
     this.props.dispatch(handleMovieSearch(searchText));
   };
+
   handleChange = (e) => {
     this.setState({
       searchText: e.target.value,
@@ -35,7 +37,7 @@ class Navbar extends React.Component {
   render() {
     const { showSearchResults } = this.state;
     const { result } = this.props.search;
-    console.log(this.state);
+    // console.log(this.state);
 
     return (
       <div className="nav">
@@ -64,4 +66,12 @@ class Navbar extends React.Component {
   }
 }
 
-export default Navbar;
+function mapStateToProps({ search }) {
+  // console.log(search);
+  return {
+    search,
+  };
+}
+
+const connectedAppComponent = connect(mapStateToProps)(Navbar);
+export default connectedAppComponent;

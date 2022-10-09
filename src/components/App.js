@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { data } from '../data';
 import MovieCard from './MovieCard';
 import Navbar from './Navbar';
@@ -6,17 +7,7 @@ import { addMovies, setShowFavourites } from '../actions';
 
 class App extends React.Component {
   componentDidMount() {
-    const { store } = this.props;
-    store.subscribe(() => {
-      console.log('UPDATED');
-      this.forceUpdate();
-    });
-
-    // make api call
-    //dispatch action
-    store.dispatch(addMovies(data));
-
-    console.log('STATE', this.props.store.getState());
+    this.props.dispatch(addMovies(data));
   }
 
   isMovieFavourite = (movie) => {
@@ -78,4 +69,12 @@ class App extends React.Component {
   }
 }
 
-export default App;
+function callback(state) {
+  // console.log(state);
+  return {
+    movies: state.movies,
+    search: state.movies,
+  };
+}
+const connectedComponent = connect(callback)(App);
+export default connectedComponent;

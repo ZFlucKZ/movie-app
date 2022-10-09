@@ -30,7 +30,7 @@ class MovieCard extends React.Component {
             <div className="rating">{movie.imdbRating}</div>
             {isFavourite ? (
               <button
-                className="favourite-btn"
+                className="unfavourite-btn"
                 onClick={this.handleUnFavouriteClick}
               >
                 UnFavourite
